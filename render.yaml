@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: discord-modern-bot
+    runtime: python
+
+    buildCommand: pip install -r requirements.txt
+
+    startCommand: python bot.py
+
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+
+      - key: GUILD_ID
+        value: "1534290216418938891"
+
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+
+    healthCheckPath: /health
+
+    autoDeploy: true
